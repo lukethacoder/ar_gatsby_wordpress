@@ -16,16 +16,7 @@ class Index extends React.Component {
         <SEO postEdges={postEdges} />
         <TopNavigation pages={this.props.data.allWordpressPage} />
         <MainContentContainer>
-          <h1>Gatsby + Wordpress Blog</h1>
-          <p style={{ textAlign: 'center' }}>
-            Created by Eric Windmill.{' '}
-            <a
-              style={{ fontSize: '1.6rem' }}
-              href="https://twitter.com/ericwindmill"
-            >
-              You should follow him on Twitter
-            </a>
-          </p>
+          <h1>Gatsby vs. Wordpress </h1>
           <Divider />
           <PostListing postEdges={postEdges} />
         </MainContentContainer>

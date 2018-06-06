@@ -23,10 +23,10 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
-        baseUrl: '52.65.103.112',
+        baseUrl: '52.63.123.61',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
-        // The protocol. This can be http or https.
+        // The protocol. This can be http or https
         protocol: 'http',
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: true,
