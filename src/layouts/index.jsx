@@ -2,6 +2,9 @@ import React from "react";
 import Helmet from "react-helmet";
 import config from "../../data/SiteConfig";
 import "./index.css";
+import NavBar from "../components/Layout/Navigation/Navigation"
+import TopInfo from "../components/Layout/TopInfo/index"
+import Footer from "../components/Layout/Footer/Footer"
 
 export default class MainLayout extends React.Component {
   getLocalTitle() {
@@ -46,7 +49,12 @@ export default class MainLayout extends React.Component {
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        {children()}
+        <NavBar/>
+        <div className="content_container">
+            <TopInfo/>
+            {children()}
+            <Footer config={config}/>
+        </div>
       </div>
     );
   }
