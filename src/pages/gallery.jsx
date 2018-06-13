@@ -7,8 +7,8 @@ import Helmet from 'react-helmet'
 
 export default class GalleryPage extends Component {
     render() {
-        // const {data} = this.props;
-        // const {edges: posts} = data.allMarkdownRemark;
+        const {data} = this.props;
+        const {edges: posts} = data.allWordpressPost;
         return (
             <div>
                 <Helmet>
@@ -20,20 +20,24 @@ export default class GalleryPage extends Component {
                 <section className="section">
                     {/* <GalleryGrid posts={posts}/>
                     {console.log("posts: " + posts)} */}
-                    {/* <img src={data.allMarkdownRemark.edges.node.frontmatter.cover}/> */}
+                    {this.props.data.allWordpressPost.edges.map(post => (
+                        <img src={post.node.acf.image.source_url} alt={post.node.acf.image_caption}/>
+                    ))}
+                    {/* {console.log(this.props.data.allWordpressPost.edges[1].node.acf.image.source_url)} */}
+                    {/* <img src={this.props.data.allWordpressPost.edges[0].node.acf.image.source_url}/> */}
                 </section>
             </div>
         )
     }
 }
 
-// GalleryPage.propTypes = {
-//     data: PropTypes.shape({
-//         allMarkdownRemark: PropTypes.shape({
-//             edges: PropTypes.array,
-//         }),
-//     }),
-// };
+GalleryPage.propTypes = {
+    data: PropTypes.shape({
+        allWordpressPost: PropTypes.shape({
+            edges: PropTypes.array,
+        }),
+    }),
+};
 
 export const galleryPageQuery = graphql`
 query GalleryPage {
@@ -48,6 +52,7 @@ query GalleryPage {
                 acf {
                     image {
                         id
+                        source_url
                     }
                     image_caption
                 }

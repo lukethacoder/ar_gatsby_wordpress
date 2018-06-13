@@ -2,6 +2,11 @@ const config = require('./data/SiteConfig')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
+// https://www.gatsbyjs.org/docs/environment-variables/
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
@@ -23,7 +28,7 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
-        baseUrl: '52.63.123.61',
+        baseUrl: process.env.GATSBY_WORDPRESS_IP,
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https

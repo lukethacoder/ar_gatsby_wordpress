@@ -20,6 +20,7 @@ class PostListing extends React.Component {
         //     : '',
         // authorName: postEdge.node.author.name,
         // authorAvatarUrl: postEdge.node.author.avatar_urls.wordpress_96
+        // featuredImageUrl: postEdge.node.acf.image
       })
     })
     return postList

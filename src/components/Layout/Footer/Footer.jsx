@@ -29,6 +29,7 @@ class Footer extends Component {
         <div className="privacyTermsContainer">
             <Link to="/">Terms & Conditions</Link>
             <Link to="/">Privacy Policy</Link>
+            <a href={"http://" + process.env.GATSBY_WORDPRESS_IP} target="_blank">WP Admin</a>
         </div>
     </footer>
     );
