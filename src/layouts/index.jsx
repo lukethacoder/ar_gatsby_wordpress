@@ -2,9 +2,9 @@ import React from "react";
 import Helmet from "react-helmet";
 import config from "../../data/SiteConfig";
 import "./index.css";
-import NavBar from "../components/Layout/Navigation/Navigation"
 import TopInfo from "../components/Layout/TopInfo/index"
 import Footer from "../components/Layout/Footer/Footer"
+import TopNavigation from "../components/Layout/Navigation/Navigation"
 
 export default class MainLayout extends React.Component {
   getLocalTitle() {
@@ -49,9 +49,10 @@ export default class MainLayout extends React.Component {
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <NavBar/>
+        <TopInfo/>
+        <TopNavigation siteLogo={this.props.data.siteLogo.edges[0].node} pages={this.props.data.allWordpressPage} />
+
         <div className="content_container">
-            <TopInfo/>
             {children()}
             <Footer config={config}/>
         </div>
@@ -59,3 +60,49 @@ export default class MainLayout extends React.Component {
     );
   }
 }
+
+
+export const pageQuery = graphql`
+  query IndexLayoutQuery {
+    siteLogo:
+      allWordpressPost(filter: {title: {eq: "Site Logo"}}) {
+        edges {
+          node {
+            title
+            featured_media {
+              source_url
+            }
+          }
+        }
+      }
+    
+    allWordpressPost {
+      edges {
+        node {
+          date
+          slug
+          title
+          modified
+          excerpt
+          id
+          categories {
+            name
+          }
+          content
+          acf {
+            kit_type
+          }
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          slug
+          title
+          id
+        }
+      }
+    }
+  }
+`

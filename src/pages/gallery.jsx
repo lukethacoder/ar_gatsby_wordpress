@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import GalleryGrid from '../components/Layout/GalleryGrid/GalleryGrid'
 
 import Helmet from 'react-helmet'
 // import GalleryGrid from "../../components/GalleryGrid";
@@ -14,18 +15,7 @@ export default class GalleryPage extends Component {
                 <Helmet>
                     <title>Gallery</title>
                 </Helmet>
-                <section className="hero is-primary is-bold">
-                    <h1>Gallery</h1>
-                </section>
-                <section className="section">
-                    {/* <GalleryGrid posts={posts}/>
-                    {console.log("posts: " + posts)} */}
-                    {this.props.data.allWordpressPost.edges.map(post => (
-                        <img src={post.node.acf.image.source_url} alt={post.node.acf.image_caption}/>
-                    ))}
-                    {/* {console.log(this.props.data.allWordpressPost.edges[1].node.acf.image.source_url)} */}
-                    {/* <img src={this.props.data.allWordpressPost.edges[0].node.acf.image.source_url}/> */}
-                </section>
+                <GalleryGrid gridItems={this.props.data.allWordpressPost.edges}/>
             </div>
         )
     }

@@ -2,22 +2,24 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { siteTitle } from '../../../../data/SiteConfig'
-import Logo from '../../Accessories/Logo'
 
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/fontawesome-free-solid'
-import { ar_white, ar_blue, nav_width, ar_darkBlue } from '../../../variables.jsx'
+import { ar_white, ar_blue, nav_width, ar_darkBlue, ar_darkGrey } from '../../../variables.jsx'
 
 class TopNavigation extends Component {
   render() {
+      console.log(this.props.siteLogo);
+      const siteLogo = this.props.siteLogo;
     return (
       <Navbar>
             <div>
                 <div className="navbarBrand">
                     <Link to="/" className="navbarItem">
-                        <img src={Logo}/>
+                        {console.log( siteLogo )}
+                        <img src={siteLogo.featured_media.source_url} alt={siteLogo.featured_media.image_caption}/>
                     </Link>
                 </div>
                 <div>
@@ -62,11 +64,11 @@ const Navbar = styled.div`
     width: 100%;
     height: auto;
     display: grid;
-    position: absolute;
-    color: green;
+    /* position: absolute; */
     background-color: ${ar_white};
     margin: 0;
     padding: 0;
+    padding-top: 45px;
     z-index: 200;
     > div {
         width: ${nav_width};
@@ -78,7 +80,7 @@ const Navbar = styled.div`
         color: #222;
         text-decoration: none;
         border-radius: 0;
-        margin: 50px auto 5px auto;
+        margin: 10px auto 10px auto;
         .navbarBrand {
             display: flex;
             width: auto;
@@ -90,9 +92,9 @@ const Navbar = styled.div`
             margin: 0;
             img {
                 display: block;
-                width: 65%;
-                height: auto;
-                padding: 5% 0;
+                max-width: 85%;
+                max-height: 100%;
+                padding: 2% 0;
             }
         }
         > div {
@@ -110,7 +112,10 @@ const Navbar = styled.div`
                     text-decoration: none;
                     color: ${ar_blue};
                     margin-left: 10px;
-                    font-size: 1.25rem;
+                    font-size: 1.5rem;
+                    &:hover {
+                        color: ${ar_darkGrey};
+                    }
                 }
             }
             .navbarMenu {
@@ -125,6 +130,7 @@ const Navbar = styled.div`
                     text-decoration: none;
                     color: #222;
                     margin-left: 30px;
+                    font-size: 1.2rem;
                 }
             }
         }

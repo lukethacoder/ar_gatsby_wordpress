@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import PostListing from '../components/Posts/PostListing/PostListing'
 import SEO from '../components/Accessories/SEO/SEO'
 import config from '../../data/SiteConfig'
-import TopNavigation from '../components/Layout/Navigation/Navigation'
 
 class Index extends React.Component {
   render() {
@@ -14,11 +13,10 @@ class Index extends React.Component {
       <HomeContainer>
         <Helmet title={config.siteTitle} />
         <SEO postEdges={postEdges} />
-        <TopNavigation pages={this.props.data.allWordpressPage} />
         <MainContentContainer>
           <h1>Gatsby vs. Wordpress </h1>
           <Divider />
-          <PostListing postEdges={postEdges} />
+          {/* <PostListing postEdges={postEdges} /> */}
         </MainContentContainer>
       </HomeContainer>
     )
@@ -96,14 +94,6 @@ export const pageQuery = graphql`
 //         node {
 //           featured_media {
 //             source_url
-//           }
-//           author {
-//             name
-//             avatar_urls {
-//               wordpress_24
-//               wordpress_48
-//               wordpress_96
-//             }
 //           }
 //           date
 //           slug

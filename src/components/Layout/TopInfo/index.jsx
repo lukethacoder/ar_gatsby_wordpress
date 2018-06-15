@@ -66,6 +66,7 @@ const TopInfoContainer = styled.div`
             font-size: 12px;
             font-weight: 600;
             align-self: center;
+            background: none;
             svg {
                 color: ${ar_blue};
                 margin-right: 10px;
