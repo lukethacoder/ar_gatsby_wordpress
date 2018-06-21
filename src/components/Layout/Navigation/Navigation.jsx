@@ -13,13 +13,16 @@ class TopNavigation extends Component {
   render() {
       console.log(this.props.siteLogo);
       const siteLogo = this.props.siteLogo;
+    //   const { siteLogo } = this.props.siteLogo.featured_media.source_url;
+      const siteLogoCaption = "cheese";
     return (
       <Navbar>
             <div>
                 <div className="navbarBrand">
                     <Link to="/" className="navbarItem">
-                        {console.log( siteLogo )}
-                        <img src={siteLogo.featured_media.source_url} alt={siteLogo.featured_media.image_caption}/>
+                        {console.log( siteLogo)}
+                        {console.log( "siteLogoCaption" )}
+                        <img src={siteLogo} alt={"siteLogoCaption"}/>
                     </Link>
                 </div>
                 <div>
@@ -82,6 +85,7 @@ const Navbar = styled.div`
         border-radius: 0;
         margin: 10px auto 10px auto;
         .navbarBrand {
+            height: 100%;
             display: flex;
             width: auto;
             justify-self: stretch;
@@ -92,7 +96,7 @@ const Navbar = styled.div`
             margin: 0;
             img {
                 display: block;
-                max-width: 85%;
+                max-width: 75%;
                 max-height: 100%;
                 padding: 2% 0;
             }

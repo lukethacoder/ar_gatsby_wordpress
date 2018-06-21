@@ -50,7 +50,7 @@ export default class MainLayout extends React.Component {
           <meta name="description" content={config.siteDescription} />
         </Helmet>
         <TopInfo/>
-        <TopNavigation siteLogo={this.props.data.siteLogo.edges[0].node} pages={this.props.data.allWordpressPage} />
+        <TopNavigation siteLogo={this.props.data.siteLogo.edges[0].node.acf.logo_image.source_url} pages={this.props.data.allWordpressPage} />
 
         <div className="content_container">
             {children()}
@@ -69,8 +69,11 @@ export const pageQuery = graphql`
         edges {
           node {
             title
-            featured_media {
-              source_url
+            acf {
+              logo_image {
+                id
+                source_url
+              }
             }
           }
         }
