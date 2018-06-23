@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+require('typeface-montserrat');
 
 export const vp_sizes = `
     mobile: 376,

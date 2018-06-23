@@ -7,14 +7,14 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/fontawesome-free-solid'
-import { ar_white, ar_blue, nav_width, ar_darkBlue, ar_darkGrey } from '../../../variables.jsx'
+import { ar_white, ar_blue, nav_width, ar_darkBlue, ar_darkGrey, primary_font } from '../../../variables.jsx'
 
 class TopNavigation extends Component {
   render() {
       console.log(this.props.siteLogo);
       const siteLogo = this.props.siteLogo;
     //   const { siteLogo } = this.props.siteLogo.featured_media.source_url;
-      const siteLogoCaption = "cheese";
+      const siteLogoCaption = this.props.siteLogoCaption;
     return (
       <Navbar>
             <div>
@@ -32,29 +32,40 @@ class TopNavigation extends Component {
                         <a href="/"><FontAwesomeIcon icon={["fab", "youtube"]}/></a>
                         <a href="/"><FontAwesomeIcon icon={["fab", "twitter"]}/></a>
                     </div>
-                    <div className="navbarMenu" id="navMenu">
-                        <Link className="navbarItem" to="/">
+                    <ul className="navbarMenu" id="navMenu">
+                        <li className="navbarItem"><Link to="/">
                             Home
-                        </Link>
-                        <Link className="navbarItem" to="/studios">
-                            Studios
-                        </Link>
-                        <Link className="navbarItem" to="/homes">
-                            Homes
-                        </Link>
-                        <Link className="navbarItem" to="/process">
+                        </Link></li>
+                        <li className="navbarItem navbarItemDropDown" id="dropdown-whatweoffer">
+                            <Link to="/">What We Offer</Link>
+                            <ul className="navbarSubItemContainer" id="dropdown-items-whatweoffer">
+                                <li><Link to="/studios">
+                                    Roundhouse Studios
+                                </Link></li>
+                                <li><Link to="/living">
+                                    Roundhouse Living
+                                </Link></li>
+                                <li><Link to="/">
+                                    Custom Projects
+                                </Link></li>
+                                <li><Link to="/">
+                                    Additional Services
+                                </Link></li>
+                            </ul>
+                        </li>
+                        <li className="navbarItem"><Link to="/process">
                             Process
-                        </Link>
-                        <Link className="navbarItem" to="/gallery">
-                            Gallery
-                        </Link>
-                        <Link className="navbarItem" to="/about">
-                            Who We Are
-                        </Link>
-                        <Link className="navbarItem" to="/contact">
+                        </Link></li>
+                        <li className="navbarItem"><Link to="/gallery">
+                            Completed Projects
+                        </Link></li>
+                        <li className="navbarItem"><Link to="/contact">
                             Contact Us
-                        </Link>
-                    </div>
+                        </Link></li>
+                        {/* <li><Link to="/contact">
+                            About Us
+                        </Link></li> */}
+                    </ul>
                 </div>
                 
             </div>
@@ -65,13 +76,12 @@ class TopNavigation extends Component {
 
 const Navbar = styled.div`
     width: 100%;
-    height: auto;
+    min-height: 16vh;
     display: grid;
     /* position: absolute; */
     background-color: ${ar_white};
     margin: 0;
-    padding: 0;
-    padding-top: 45px;
+    padding: 48px 0 0 0;
     z-index: 200;
     > div {
         width: ${nav_width};
@@ -83,7 +93,7 @@ const Navbar = styled.div`
         color: #222;
         text-decoration: none;
         border-radius: 0;
-        margin: 10px auto 10px auto;
+        margin: 0 auto;
         .navbarBrand {
             height: 100%;
             display: flex;
@@ -92,13 +102,13 @@ const Navbar = styled.div`
             align-self: center;
             justify-content: flex-start;
             align-content: center;
-            padding: 0;
+            padding: 24px 0;
             margin: 0;
             img {
-                display: block;
-                max-width: 75%;
+                /* display: block; */
+                max-width: 100%;
                 max-height: 100%;
-                padding: 2% 0;
+                padding: 0;
             }
         }
         > div {
@@ -110,31 +120,64 @@ const Navbar = styled.div`
                 align-self: flex-end;
                 justify-content: flex-start;
                 align-content: flex-start;
-                padding-bottom: 15px;
+                padding-bottom: 16px;
                 a {
                     align-self: end;
                     text-decoration: none;
                     color: ${ar_blue};
-                    margin-left: 10px;
+                    margin-left: 4px;
                     font-size: 1.5rem;
                     &:hover {
                         color: ${ar_darkGrey};
                     }
                 }
             }
-            .navbarMenu {
-                display: inline-block;
+            .navbarMenu { /* ul */
+                display: inline-flex;
                 text-decoration: none;
                 font-weight: 600;
                 justify-self: flex-end;
                 align-self: flex-start;
                 justify-content: flex-end;
                 align-content: flex-end;
-                .navbarItem {
+                .navbarItem { /* li */
                     text-decoration: none;
                     color: #222;
-                    margin-left: 30px;
+                    margin-left: 32px;
                     font-size: 1.2rem;
+                    margin: 0;
+                    a {
+                        font-size: 1.2rem;
+                        padding: 0 16px;
+                        font-family: ${primary_font};
+                        font-weight: 700;
+                        text-transform: uppercase;
+                    }
+                    .navbarSubItemContainer {
+                        display: none;
+                        padding-top: 36px;
+                        li {
+                            padding: 8px 16px;
+                            background-color: ${ar_darkGrey};
+                            a {
+                                font-size: 1.2rem;
+                                color: ${ar_white};
+                                margin: 0;
+                                padding: 0;
+                                font-family: ${primary_font};
+                                font-weight: 500;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+                #dropdown-whatweoffer {
+                    &:hover {
+                        #dropdown-items-whatweoffer {
+                            display: block;
+                            position: absolute;
+                        }
+                    }
                 }
             }
         }

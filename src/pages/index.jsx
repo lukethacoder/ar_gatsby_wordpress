@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import PostListing from '../components/Posts/PostListing/PostListing'
+import ProjectsFeature from '../components/Layout/ProjectsFeature/ProjectsFeature'
 import SEO from '../components/Accessories/SEO/SEO'
 import config from '../../data/SiteConfig'
 
@@ -14,7 +15,7 @@ class Index extends React.Component {
         <Helmet title={config.siteTitle} />
         <SEO postEdges={postEdges} />
         <MainContentContainer>
-          <h1>Gatsby vs. Wordpress </h1>
+          <ProjectsFeature/>
           <Divider />
           {/* <PostListing postEdges={postEdges} /> */}
         </MainContentContainer>
@@ -33,8 +34,8 @@ const Divider = styled.div`
 `
 
 const MainContentContainer = styled.main`
-  width: 600px;
-  margin: 50px auto;
+  width: 100%;
+  margin: 48px auto 0 auto;
 
   h1 {
     text-align: center;
