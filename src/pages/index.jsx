@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import PostListing from '../components/Posts/PostListing/PostListing'
 import ProjectsFeature from '../components/Layout/ProjectsFeature/ProjectsFeature'
+import ContactForm from '../components/Layout/ContactForm/ContactForm'
 import SEO from '../components/Accessories/SEO/SEO'
 import config from '../../data/SiteConfig'
 
@@ -15,8 +16,9 @@ class Index extends React.Component {
         <Helmet title={config.siteTitle} />
         <SEO postEdges={postEdges} />
         <MainContentContainer>
-          <ProjectsFeature/>
+          <ProjectsFeature />
           <Divider />
+          <ContactForm />
           {/* <PostListing postEdges={postEdges} /> */}
         </MainContentContainer>
       </HomeContainer>
