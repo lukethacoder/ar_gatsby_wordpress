@@ -17,7 +17,6 @@ class Index extends React.Component {
         <SEO postEdges={postEdges} />
         <MainContentContainer>
           <ProjectsFeature />
-          <Divider />
           <ContactForm />
           {/* <PostListing postEdges={postEdges} /> */}
         </MainContentContainer>
@@ -29,11 +28,6 @@ class Index extends React.Component {
 export default Index
 
 const HomeContainer = styled.div``
-
-const Divider = styled.div`
-  margin: 50px 0;
-  border-bottom: 1px solid darkgray;
-`
 
 const MainContentContainer = styled.main`
   width: 100%;

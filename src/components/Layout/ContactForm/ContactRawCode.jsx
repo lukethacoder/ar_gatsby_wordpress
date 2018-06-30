@@ -1,18 +1,12 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { ar_white, ar_blue, nav_width, ar_darkBlue, ar_darkGrey, primary_font } from '../../../variables.jsx'
-import AgileCRM from 'agile_crm'
-
-// const AgileCRMManager = require('../../Accessories/AgileCRM/agilecrm.js')
+import React, {Component} from 'react'
+import styled from 'styled-components'
+import { ar_white, ar_grey, ar_blue, nav_width, ar_darkBlue, ar_darkGrey, primary_font } from '../../../variables.jsx'
 
 export default class ContactRawCode extends Component {
     render() {
         return (
-          <form className="form-view theme5" id="agile-form" action="https://australianroundhouse.agilecrm.com/formsubmit" method="GET">
+          <ContactRawCodeContainer className="form-view theme5" id="agile-form" action="https://australianroundhouse.agilecrm.com/formsubmit" method="GET">
               <fieldset>
-
-                  <legend>Contact Form</legend>
                   <p className="agile-form-description" />
                   <div>
                       <input type="hidden" id="_agile_form_name" name="_agile_form_name" value="Contact Form" />
@@ -24,20 +18,20 @@ export default class ContactRawCode extends Component {
                       <input type="hidden" id="_agile_form_id_tags" name="tags" value="website enquiry" />
 
                       <input type="hidden" id="_agile_form_id" name="_agile_form_id" value="5747286126624768" />
-                    </div>
+                  </div>
 
                   <div classNameName="agile-group">
                       <label className="agile-label" htmlFor="agilefield-name">Name</label>
                       <div className="agile-field-xlarge agile-field">
-                          <input maxLength="250" id="agilefield-name" name="first_name" type="text" placeholder="" className="agile-height-default" />
-                        </div>
+                        <input maxLength="250" id="agilefield-name" name="first_name" type="text" placeholder="" className="agile-height-default" autoComplete='name'/>
+                      </div>
                       <div className="agile-custom-clear" />
                     </div>
 
                   <div className="agile-group required-control">
                       <label className="agile-label" htmlFor="agilefield-email">Email<span className="agile-span-asterisk"> *</span></label>
                       <div className="agile-field-xlarge agile-field">
-                          <input maxLength="250" id="agilefield-email" name="email" type="email" placeholder="" className="agile-height-default" required="" />
+                          <input maxLength="250" id="agilefield-email" name="email" type="email" placeholder="" className="agile-height-default" required="" autoComplete='email'/>
                         </div>
                       <div className="agile-custom-clear" />
                     </div>
@@ -45,7 +39,7 @@ export default class ContactRawCode extends Component {
                   <div className="agile-group required-control">
                       <label className="agile-label" htmlFor="agilefield-8">Phone Number<span className="agile-span-asterisk"> *</span></label>
                       <div className="agile-field-xlarge agile-field">
-                          <input maxLength="250" id="agilefield-8" name="phone" type="text" placeholder="" className="agile-height-default" required="" />
+                          <input maxLength="250" id="agilefield-8" name="phone" type="text" placeholder="" className="agile-height-default" required="" autoComplete='tel'/>
                         </div>
                       <div className="agile-custom-clear" />
                     </div>
@@ -97,9 +91,38 @@ export default class ContactRawCode extends Component {
                             </div>
                         </div>
                     </div>
-
                 </fieldset>
-            </form>
+            </ContactRawCodeContainer>
         )
     }
 };
+
+const ContactRawCodeContainer = styled.form`
+    background-color: ${ar_white};
+    width: 100%;
+    padding: 24px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    fieldset {
+        legend {
+
+        }
+        .agile-form-description {
+
+        }
+        .agile-group {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            .agile-label {
+
+            }
+            .agile-field {
+                input {
+                    background-color: ${ar_white};
+                    border: 1px solid ${ar_darkBlue};
+                }
+            }
+        }
+    }
+`

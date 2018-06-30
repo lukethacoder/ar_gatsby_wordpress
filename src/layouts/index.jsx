@@ -49,7 +49,7 @@ export default class MainLayout extends React.Component {
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <TopInfo/>
+        {/* <TopInfo/> */}
         <TopNavigation
           siteLogo={this.props.data.siteLogo.edges[0].node.acf.logo_image.source_url}
           siteLogoCaption={this.props.data.siteLogo.edges[0].node.title}
