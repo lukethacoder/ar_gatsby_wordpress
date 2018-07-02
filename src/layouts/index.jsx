@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components"
 import Helmet from "react-helmet";
 import config from "../../data/SiteConfig";
 import "./index.css";
@@ -55,10 +56,10 @@ export default class MainLayout extends React.Component {
           siteLogoCaption={this.props.data.siteLogo.edges[0].node.title}
           pages={this.props.data.allWordpressPage} />
 
-        <div className="content_container">
+        <ContentContainer className="content_container">
             {children()}
-            <Footer config={config}/>
-        </div>
+        </ContentContainer>
+        <Footer config={config}/>
       </div>
     );
   }
@@ -111,4 +112,8 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const ContentContainer = styled.div`
+
 `

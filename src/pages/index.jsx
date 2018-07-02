@@ -31,7 +31,7 @@ const HomeContainer = styled.div``
 
 const MainContentContainer = styled.main`
   width: 100%;
-  margin: 48px auto 0 auto;
+  margin: 0 auto;
 
   h1 {
     text-align: center;
