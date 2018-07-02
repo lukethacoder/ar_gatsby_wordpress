@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import Link from "gatsby-link";
-import UserLinks from "../../Accessories/UserLinks/UserLinks";
-import "./Footer.css";
-// import { config } from '../../../../data/SiteConfig'
-import config from '../../../../data/SiteConfig'
+import Link from "gatsby-link"
+import styled from 'styled-components'
 
 class Footer extends Component {
   render() {
@@ -13,10 +10,9 @@ class Footer extends Component {
       return null;
     }
     return (
-      <footer className="footer">
+      <FooterContainer className="footer">
         <div className="container">
             <div className="content has-text-centered">
-            <UserLinks config={config} labeled />
                 {/* <img src={VitalDesigns}/> */}
                 <p>
                     {config.licence} 
@@ -31,9 +27,16 @@ class Footer extends Component {
             <Link to="/">Privacy Policy</Link>
             <a href={"http://" + process.env.GATSBY_WORDPRESS_IP} target="_blank">WP Admin</a>
         </div>
-    </footer>
+    </FooterContainer>
     );
   }
 }
 
 export default Footer;
+
+
+const FooterContainer = styled.footer`
+    justify-content: center;
+    align-content: center;
+    padding: 10px 5px 5px;
+`

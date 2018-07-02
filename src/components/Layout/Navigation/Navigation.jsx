@@ -339,10 +339,14 @@ const Navbar = styled.div`
                 grid-template-columns: 100%;
                 grid-template-rows: 100%;
                 width: 100%;
-                height: 75%; /* adjust logo height here*/
+                height: 100%; /* adjust logo height here*/
                 align-self: center;
                 align-content: center;
-                padding: 0;
+                padding: 20% 0;
+                @media (min-width: 1079px) {
+                    height: 75%;
+                    padding: 0;
+                }
                 img {
                     max-width: 100%;
                     max-height: 100%;
