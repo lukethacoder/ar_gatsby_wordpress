@@ -18,15 +18,12 @@ class MobileMenu extends Component {
     }
 
     toggleSubMenu() {
-        console.log('pls open me')
         if (this.state.menuSubstate === true) {
-            console.log('if');
             this.setState({
                 menuSubstate: false
             });
         }
         else {
-            console.log('else');
             this.setState({
                 menuSubstate: true
             });
@@ -87,7 +84,6 @@ class MobileMenu extends Component {
                         <a href="/"><FontAwesomeIcon icon={["fab", "twitter"]}/></a>
                     </div>
                 </div>
-                
             </MobileMenuContainer>
         )
     }
@@ -103,13 +99,11 @@ class TopNavigation extends Component {
     }
     
     toggleMenu(whatIsIt) {
-        console.log('pls open me')
         this.setState({
             menuVisState: whatIsIt
         })
     }
   render() {
-      console.log(this.props.siteLogo);
       const siteLogo = this.props.siteLogo;
     //   const { siteLogo } = this.props.siteLogo.featured_media.source_url;
       const siteLogoCaption = this.props.siteLogoCaption;
@@ -118,8 +112,6 @@ class TopNavigation extends Component {
             <div className="navbarDesktop">
                 <div className="navbarBrand">
                     <Link to="/" className="navbarLogo">
-                        {console.log( siteLogo)}
-                        {console.log( "siteLogoCaption" )}
                         <img src={siteLogo} alt={siteLogoCaption}/>
                     </Link>
                 </div>
@@ -247,9 +239,9 @@ const MobileMenuContainer = styled.div`
                 .navbarItem { /* li */
                     text-decoration: none;
                     color: #222;
-                    margin: 8px 0;
+                    margin: 16px 0;
                     a {
-                        font-size: 1.75rem;
+                        font-size: 2rem;
                         font-family: ${primary_font};
                         font-weight: 700;
                         text-transform: uppercase;
@@ -257,12 +249,17 @@ const MobileMenuContainer = styled.div`
                         padding: 0;
                     }
                     .navbarSubItemContainer {
-                        font-size: 1.75rem;
+                        font-size: 2rem;
+                        li:nth-child(1) {
+                            padding-top: 16px;
+                        }
+                        li:last-child {
+                            padding-bottom: 0;
+                        }
                         li {
                             padding: 8px 16px;
                             a {
-                                font-size: 1.25rem;
-                                color: ${ar_white};
+                                font-size: 1.5rem;
                                 margin: 0;
                                 padding: 0;
                                 font-family: ${primary_font};
