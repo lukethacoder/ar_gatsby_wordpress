@@ -1,8 +1,9 @@
-import React from "react";
+import React from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
-import Helmet from "react-helmet";
-import config from "../../data/SiteConfig";
-import "./index.css";
+import Helmet from "react-helmet"
+import config from "../../data/SiteConfig"
+import "./index.css"
 import TopInfo from "../components/Layout/TopInfo/index"
 import Footer from "../components/Layout/Footer/Footer"
 import TopNavigation from "../components/Layout/Navigation/Navigation"
@@ -57,7 +58,7 @@ export default class MainLayout extends React.Component {
           pages={this.props.data.allWordpressPage} />
 
         <ContentContainer className="content_container">
-            {children()}
+            {children}
         </ContentContainer>
         <Footer config={config}/>
       </div>
