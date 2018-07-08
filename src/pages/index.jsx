@@ -6,21 +6,24 @@ import ProjectsFeature from '../components/Layout/ProjectsFeature/ProjectsFeatur
 import ContactForm from '../components/Layout/ContactForm/ContactForm'
 import SEO from '../components/Accessories/SEO/SEO'
 import config from '../../data/SiteConfig'
+import LayoutComponent from '../components/layouts/index'
 
 class Index extends React.Component {
   render() {
     console.log(this.props.data);
     const postEdges = this.props.data.allWordpressPost.edges
     return (
-      <HomeContainer>
-        <Helmet title={config.siteTitle} />
-        <SEO postEdges={postEdges} />
-        <MainContentContainer>
-          <ProjectsFeature />
-          <ContactForm />
-          {/* <PostListing postEdges={postEdges} /> */}
-        </MainContentContainer>
-      </HomeContainer>
+      <LayoutComponent>
+        <HomeContainer>
+          <Helmet title={config.siteTitle} />
+          <SEO postEdges={postEdges} />
+          <MainContentContainer>
+            <ProjectsFeature />
+            <ContactForm />
+            {/* <PostListing postEdges={postEdges} /> */}
+          </MainContentContainer>
+        </HomeContainer>
+      </LayoutComponent>
     )
   }
 }

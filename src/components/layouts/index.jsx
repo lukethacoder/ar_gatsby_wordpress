@@ -8,7 +8,7 @@ import TopInfo from "../components/Layout/TopInfo/index"
 import Footer from "../components/Layout/Footer/Footer"
 import TopNavigation from "../components/Layout/Navigation/Navigation"
 
-export default class MainLayout extends React.Component {
+export default class LayoutComponent extends React.Component {
   getLocalTitle() {
     function capitalize(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
